@@ -16,7 +16,6 @@ def upload():
     if 'images' not in os.listdir(UPLOAD_FOLDER):
         os.makedirs('images')
     else:
-
         f.save(os.path.join(UPLOAD_FOLDER+'\images',filename))
     img = cv2.imread(UPLOAD_FOLDER+'\images\\'+filename)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -30,7 +29,7 @@ def upload():
             cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2, 8, 0)
             cv2.putText(img, "#{}".format(i + 1), (int(x), int(y) - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.45,(0, 0, 255), 1)  # 左上角坐标
     w = cv2.imwrite('identify-'+filename, img, [int(cv2.IMWRITE_JPEG_QUALITY), 100])  # 保存图片
-    f.save(os.path.join(UPLOAD_FOLDER + '\images', w))
+    # f.save(os.path.join(UPLOAD_FOLDER + '\images', w))
     # cv2.imshow("img", img)
     # cv2.waitKey(0)
     # cv2.destroyAllWindows()
